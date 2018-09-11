@@ -1,0 +1,37 @@
+<div class="container">
+  <form>
+    <div class="form-group row">
+      <p> Please enter your guess:</p>
+      <label for="staticEmail" class="col-sm-2 col-form-label">Guuess the Number:</label>
+      <div class="col-sm-10">
+        <input type="text" [value] = "guess" (input) = "guess= $event.target.value" class="form-control-plaintext" >
+      </div>
+      <div [ngStyle]="isShow" >Hello</div>
+      <button (click) = "verifyGuess()">Guess</button>
+      <p>{{ currency | currency: 'INR' }}</p>
+      <p *ngIf="deviation < 0"> Your guess is heigher</p>
+      <p *ngIf="deviation > 0"> Your guess is lower</p>
+      <p *ngIf="deviation === 0"> Your have entered currect guess..!</p>
+
+    </div>
+    <div *ngFor = "let product of products">Name: {{ product.name }}
+      Cost: {{ product.cost | currency: 'INR' }}
+      Product-code: {{product.code}}
+    </div>
+    {{emotion}}
+    <span [ngSwitch]="emotion">
+    <p *ngSwitchCase="'happy'">
+      happy block
+    </p>
+    <p *ngSwitchCase="'sad'">
+      sad block
+    </p>
+    <p *ngSwitchCase="'confused'">
+confused block
+    </p>
+    <p *ngSwitchDefault>
+      Don't know
+    </p>
+    </span>
+  </form>
+</div>
