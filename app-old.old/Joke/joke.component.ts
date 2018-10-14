@@ -5,7 +5,8 @@ import { Joke } from "src/app/Joke/Joke";
   selector: 'joke',
   template: `
   <div class="card card-block">
-  <h4 class="card-title">{{data.setup}}</h4>
+  <img [src] = "image | default: '/assets/avatar.png' "  />
+  <h4 class="card-title">{{data.setup | uppercase}}</h4>
   <p class="card-text"
      [hidden]="data.hide">
      <ng-content select="div"></ng-content>
@@ -20,8 +21,8 @@ import { Joke } from "src/app/Joke/Joke";
 export class JokeComponent implements OnChanges{
   @Input('joke') data: Joke;
   @Input() data2: string;
-  public newdata : Joke;
-
+  public newdata = "childdata";
+  image = '';
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
   }

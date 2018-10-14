@@ -2,34 +2,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { JokeComponent } from './Joke/joke.component';
-import { JokeListComponent } from './Joke/joke-list.component';
-import { JokeFormComponent } from './Joke/JokeForm.component';
-import { JokeAppComponent } from './joke-app.component';
-// import { GuessTheNumberComponent } from './guess-the-number/guess-the-number.component';
-// import { AppNavbar } from './app-navbar/app-navbar.component';
-// import { AppFooter } from './app-footer/app-footer.component';
-// import { AppContent } from './app-content/app-content.component';
-// import { AppHeader } from './app-header/app-header.component';
-// import { AppComponent } from './app.component';
+import { AddBookComponent } from './add-book/add-book.component';
+import { AddReaderComponent } from './add-reader/add-reader.component';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
+import { EditReaderComponent } from './edit-reader/edit-reader.component';
+
+import { LoggerService } from './services/logger.service';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [
-    // GuessTheNumberComponent,
-    // AppNavbar,
-    // AppFooter,
-    // AppContent,
-    // AppHeader,
-    JokeComponent,
-    JokeAppComponent,
-    JokeListComponent,
-    JokeFormComponent
+    AppComponent,
+    DashboardComponent,
+    AddBookComponent,
+    EditReaderComponent,
+    EditBookComponent,
+    AddReaderComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule
   ],
-  providers: [],
-  bootstrap: [JokeAppComponent]
+  providers: [LoggerService, DataService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
